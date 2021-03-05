@@ -13,6 +13,8 @@ navigator.geolocation.getCurrentPosition( pos => {
         
         console.log(latitude);
         console.log(longitude);
+        const endpointOpenWeather = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=current&appid=${apiKey}`;
+        getOpenWeather(endpointOpenWeather);
 
     }, 
     error, 
@@ -22,4 +24,17 @@ navigator.geolocation.getCurrentPosition( pos => {
 const apiKey = "e1c24fb45d4215b7c791b97fdecc48b9";
 
 // https://openweathermap.org/api/one-call-api
-const endpointOpenWeather = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=current&appid=${apiKey}`;
+
+
+const getOpenWeather = async (url) =>{
+    try{
+        const response = await fetch(url);
+        if(response.ok){
+            let jsonResponse = await response.json();
+            console.log(jsonResponse.timezone);
+        }
+
+    } catch(error){
+        console.log("error :" + error);
+    }
+}
