@@ -21,7 +21,7 @@ navigator.geolocation.getCurrentPosition( pos => {
     options
 );
 
-const apiKey = "e1c24fb45d4215b7c791b97fdecc48b9";
+const apiKey = "your-api-key";
 
 // https://openweathermap.org/api/one-call-api
 
