@@ -63,6 +63,12 @@ const getOpenWeather = async (url) =>{
                 }
                 
             }
+
+            // Call temperature's forecast every 3 hours
+            for(let j = 0; j < $temperatureDetails.length; j++){
+
+                $temperatureDetails[j].innerHTML = `${Math.trunc(jsonResponse.hourly[j * 3].temp)}`;
+            }
         }
 
     } catch(error){
