@@ -81,12 +81,10 @@ const getOpenWeather = async (url) =>{
             for(let l = 0; l < $temperaturesDay.length; l++){
 
                 $temperaturesDay[l].innerHTML = `${Math.trunc(jsonResponse.daily[l + 1].temp.day)} °C</br>
-                <img src="http://openweathermap.org/img/wn/${jsonResponse.daily[l + 1].weather[0].icon}@2x.png">`;
+                <img class="img-next-weather" src="http://openweathermap.org/img/wn/${jsonResponse.daily[l + 1].weather[0].icon}@2x.png">`;
             }
 
-        } else {
-            console.log("sorry !!!");
-        }
+        } 
 
     } catch(error){
         console.log("error :" + error);
