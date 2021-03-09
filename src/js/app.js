@@ -77,6 +77,12 @@ const getOpenWeather = async (url) =>{
                 
             }
 
+            // Call temperature's next days
+            for(let l = 0; l < $temperaturesDay.length; l++){
+
+                $temperaturesDay[l].innerHTML = `${Math.trunc(jsonResponse.daily[l + 1].temp.day)}`;
+            }
+
         }
 
     } catch(error){
