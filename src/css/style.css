@@ -32,7 +32,7 @@ h1{
 }
 
 #next-days{
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.9);
     color: #075a79;
     font-weight: 600;
     letter-spacing: .04em;
@@ -56,18 +56,24 @@ table{
     border-width: .1em .1em 0 0;
     border-style: solid;
     border-color: #ddd;
-    border-radius: .5em;
     padding: .5em;
     background-color: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(4px);
     -moz-backdrop-filter : blur(4px);
     -webkit-backdrop-filter: blur(4px);
     -o-backdrop-filter: blur(4px);
+}
+
+#main-table{
+    border-radius: .5em .5em 0 0;
+}
+
+#daily-forecast{
     box-shadow: -.1em .5em .9em rgba(0, 0, 0, 0.3);
 }
 
 
-th{
+#name-app{
     text-transform: capitalize;
     padding: 3vh 0;
     font-size: 2em;

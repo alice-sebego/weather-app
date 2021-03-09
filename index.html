@@ -14,10 +14,10 @@
     </header>
     <main>
         <section>
-            <table>
+            <table id="main-table">
                 <thead>
                     <tr>
-                        <th colspan="7">Application Météo</th>
+                        <th colspan="7" id="name-app">Application Météo</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -25,66 +25,84 @@
                         <td colspan="4" id="imgWeather"></td>
                         <td colspan="3"><span id="description-weather"></span><br><span id="current-temperature"></span>° C<br><span id="timezone"></span></td>
                     </tr>
+                </tbody>
+            </table>
+            <table id="temp-table">
+                <thead>
+                    <tr>
+                        <th><p><span class="hour"></span> h</p></th>
+                        <th><p><span class="hour"></span> h</p></th>
+                        <th><p><span class="hour"></span> h</p></th>
+                        <th><p><span class="hour"></span> h</p></th>
+                        <th><p><span class="hour"></span> h</p></th>
+                        <th><p><span class="hour"></span> h</p></th>
+                        <th><p><span class="hour"></span> h</p></th>
+                    </tr>
+                </thead>
+                <tbody>
                     <tr id="temperatures">
                         <td>
-                            <p><span class="hour"></span> h</p>
                             <p><span class="temperatureDetails"></span> °C</p>
                         </td>
                         <td>
-                            <p><span class="hour"></span> h</p>
                             <p><span class="temperatureDetails"></span> °C</p>
                         </td>
                         <td>
-                            <p><span class="hour"></span> h</p>
                             <p><span class="temperatureDetails"></span> °C</p>
                         </td>
                         <td>
-                            <p><span class="hour"></span> h</p>
                             <p><span class="temperatureDetails"></span> °C</p>
                         </td>
                         <td>
-                            <p><span class="hour"></span> h</p>
                             <p><span class="temperatureDetails"></span> °C</p>
                         </td>
                         <td>
-                            <p><span class="hour"></span> h</p>
                             <p><span class="temperatureDetails"></span> °C</p>
                         </td>
                         <td>
-                            <p><span class="hour"></span> h</p>
                             <p><span class="temperatureDetails"></span> °C</p>
                         </td>
                     </tr>
+                </tbody>
+            </table>
+            
+            <div id="next-days">
+                <p>Votre météo dans les prochains jours</p>
+            </div>
+            
+            <table id="daily-forecast">
+                <thead>
                     <tr>
-                        <td colspan="7" id="next-days">Votre météo dans les prochains jours</td>
+                        <th><p><span class="day"></span></p></th>
+                        <th><p><span class="day"></span></p></th>
+                        <th><p><span class="day"></span></p></th>
+                        <th><p><span class="day"></span></p></th>
+                        <th><p><span class="day"></span></p></th>
+                        <th><p><span class="day"></span></p></th>
+                        <th><p><span class="day"></span></p></th>
                     </tr>
+                </thead>
+                <tbody>
                     <tr>
                         <td>
-                            <p><span class="day"></span></p>
                             <p><span class="temperatureDay"></span></p>
                         </td>
                         <td>
-                            <p><span class="day"></span></p>
                             <p><span class="temperatureDay"></span></p>
                         </td>
                         <td>
-                            <p><span class="day"></span></p>
                             <p><span class="temperatureDay"></span></p>
                         </td>
                         <td>
-                            <p><span class="day"></span></p>
                             <p><span class="temperatureDay"></span></p>
                         </td>
                         <td>
-                            <p><span class="day"></span></p>
                             <p><span class="temperatureDay"></span></p>
                         </td>
                         <td>
-                            <p><span class="day"></span></p>
                             <p><span class="temperatureDay"></span></p>
                         </td>
                         <td>
-                            <p><span class="day"></span></p>
                             <p><span class="temperatureDay"></span></p>
                         </td>
                     </tr>

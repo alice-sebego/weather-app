@@ -1,4 +1,4 @@
-import { currentHour, seriesOfDays} from './utils.js';
+import {currentHour, seriesOfDays} from './utils.js';
 
 // https://openweathermap.org/api/one-call-api
 const apiKey = "e1c24fb45d4215b7c791b97fdecc48b9";
@@ -58,7 +58,7 @@ const getOpenWeather = async (url) =>{
                     $hours[i].innerHTML = incrHour - 24;
                 } else if(incrHour === 24){
                     $hours[i].innerHTML = "0";
-                } else{
+                } else {
                     $hours[i].innerHTML = incrHour;
                 }
                 
