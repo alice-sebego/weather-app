@@ -1,13 +1,14 @@
-import {currentHour, seriesOfDays} from './utils.js';
+import {currentHour, seriesOfDays, responsiveContentsTheadTable} from './utils.js';
+import apiKey from './api-key.js';
 
-// https://openweathermap.org/api/one-call-api
-const apiKey = "e1c24fb45d4215b7c791b97fdecc48b9";
 const lang = navigator.language.substr(0,2).toLowerCase();
 
 const $hours = document.querySelectorAll(".hour");
 const $temperatureDetails = document.querySelectorAll(".temperatureDetails");
 const $days = document.querySelectorAll(".day");
 const $temperaturesDay = document.querySelectorAll(".temperatureDay");
+const $tableResponsive = document.querySelectorAll('.table-responsive');
+
 
 const options = {
     enableHighAccuracy: true,
@@ -49,17 +50,16 @@ const getOpenWeather = async (url) =>{
             timeZone.innerHTML = `${jsonResponse.timezone}`;
             
             // Call an hour every 3 hours
-
             for(let i = 0; i < $hours.length; i++){
                 
                 let incrHour = currentHour + i * 3;
                 
                 if(incrHour > 24){
-                    $hours[i].innerHTML = incrHour - 24;
+                    $hours[i].innerHTML = incrHour - 24 + " h";
                 } else if(incrHour === 24){
-                    $hours[i].innerHTML = "0";
+                    $hours[i].innerHTML = "0 h";
                 } else {
-                    $hours[i].innerHTML = incrHour;
+                    $hours[i].innerHTML = incrHour + " h";
                 }
                 
             }
@@ -73,9 +73,12 @@ const getOpenWeather = async (url) =>{
             // Call next days
             for(let k = 0; k < seriesOfDays.length; k++){
 
-                $days[k].innerHTML = seriesOfDays[k].slice(0, 3);
+                $days[k].textContent = seriesOfDays[k].slice(0, 3);
                 
             }
+
+            // Handle contents of Thead on responsive display
+            responsiveContentsTheadTable($tableResponsive);
 
             // Call temperature's next days
             for(let l = 0; l < $temperaturesDay.length; l++){
@@ -90,3 +93,5 @@ const getOpenWeather = async (url) =>{
         console.log("error :" + error);
     }
 }
+
+
