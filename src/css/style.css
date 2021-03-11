@@ -156,5 +156,11 @@ td{
     .img-next-weather{
         width: 50%;
     }
-    
+
+}
+
+@media (max-width: 350px){
+    .img-next-weather{
+        width: 100%;
+    }
 }

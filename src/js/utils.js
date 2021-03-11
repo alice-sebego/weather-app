@@ -15,15 +15,17 @@ let seriesOfDays = weekDays.slice(weekDays.indexOf(currentDay)).concat(weekDays.
 
 // Handle Content's tables when screen's width < 700 px
 
-const responsiveContentsTheadTable = (tableresponsive) =>{
+const responsiveContentsTheadTable = (tableresponsive) => {
     tableresponsive.forEach(table => {
         let labels = Array.from(table.querySelectorAll('th')).map(th => {
-            return th.innerText
-        })
+            return th.innerText;
+        });
         table.querySelectorAll('td').forEach((td, i) => {
             td.setAttribute('data-label', labels[i % labels.length])
-        })
-    })
+        });
+    });
+    
 }
+
 export {currentHour, seriesOfDays, responsiveContentsTheadTable};
 

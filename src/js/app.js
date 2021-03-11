@@ -72,10 +72,13 @@ const getOpenWeather = async (url) =>{
 
             // Call next days
             for(let k = 0; k < seriesOfDays.length; k++){
-
-                $days[k].textContent = seriesOfDays[k].slice(0, 3);
-                
+                $days[k].innerHTML = seriesOfDays[k].slice(0, 3);  
+             
             }
+
+            // for(let serieOfDays of seriesOfDays){
+            //     window.screen.width > 700 ? serieOfDays.slice(0): serieOfDays.slice(0, 3);
+            // }
 
             // Handle contents of Thead on responsive display
             responsiveContentsTheadTable($tableResponsive);
