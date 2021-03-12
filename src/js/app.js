@@ -1,14 +1,14 @@
 import {currentHour, seriesOfDays, responsiveContentsTheadTable} from './utils.js';
 import apiKey from './api-key.js';
 
-const lang = navigator.language.substr(0,2).toLowerCase();
-
+// DOM's elements
 const $hours = document.querySelectorAll(".hour");
 const $temperatureDetails = document.querySelectorAll(".temperatureDetails");
 const $days = document.querySelectorAll(".day");
 const $temperaturesDay = document.querySelectorAll(".temperatureDay");
 const $tableResponsive = document.querySelectorAll('.table-responsive');
 
+const lang = navigator.language.substr(0,2).toLowerCase();
 
 const options = {
     enableHighAccuracy: true,
@@ -49,7 +49,7 @@ const getOpenWeather = async (url) =>{
             const timeZone = document.querySelector("#timezone");
             timeZone.innerHTML = `${jsonResponse.timezone}`;
             
-            // Call an hour every 3 hours
+            // Call hour every 3 hours
             for(let i = 0; i < $hours.length; i++){
                 
                 let incrHour = currentHour + i * 3;
@@ -76,11 +76,6 @@ const getOpenWeather = async (url) =>{
              
             }
 
-            // for(let serieOfDays of seriesOfDays){
-            //     window.screen.width > 700 ? serieOfDays.slice(0): serieOfDays.slice(0, 3);
-            // }
-
-            // Handle contents of Thead on responsive display
             responsiveContentsTheadTable($tableResponsive);
 
             // Call temperature's next days

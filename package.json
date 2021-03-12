@@ -1,0 +1,32 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "Create a mini-app around the weather using data from an API",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "start": "webpack-web-server"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@babel/preset-env": "^7.12.16",
+    "babel-loader": "^8.2.2",
+    "webpack": "^5.17.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alice-sebego/weather-app.git"
+  },
+  "author": "alice",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alice-sebego/weather-app/issues"
+  },
+  "homepage": "https://github.com/alice-sebego/weather-app#readme"
+}
