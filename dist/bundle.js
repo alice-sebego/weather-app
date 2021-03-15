@@ -9372,7 +9372,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "currentHour": () => (/* binding */ currentHour),
 /* harmony export */   "seriesOfDays": () => (/* binding */ seriesOfDays),
-/* harmony export */   "responsiveContentsTheadTable": () => (/* binding */ responsiveContentsTheadTable)
+/* harmony export */   "responsiveContentsTheadTable": () => (/* binding */ responsiveContentsTheadTable),
+/* harmony export */   "switchBackgroundBody": () => (/* binding */ switchBackgroundBody)
 /* harmony export */ });
 // Handle Hours
 var currentHour = new Date().getHours(); // Handle Days
@@ -9394,6 +9395,17 @@ var responsiveContentsTheadTable = function responsiveContentsTheadTable(tablere
       td.setAttribute('data-label', labels[i % labels.length]);
     });
   });
+}; // Handle Background's body depending day's time
+
+
+var switchBackgroundBody = function switchBackgroundBody(hour, video, element, day, night) {
+  if (hour >= 6 && hour < 20) {
+    video.innerHTML = day;
+    element.prepend(video);
+  } else {
+    video.innerHTML = night;
+    element.prepend(video);
+  }
 };
 
 
@@ -9526,6 +9538,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
  // DOM's elements
 
+var $main = document.querySelector("main");
 var $hours = document.querySelectorAll(".hour");
 var $temperatureDetails = document.querySelectorAll(".temperatureDetails");
 var $days = document.querySelectorAll(".day");
@@ -9612,20 +9625,20 @@ var getOpenWeather = /*#__PURE__*/function () {
             }
 
           case 21:
-            _context.next = 31;
+            _context.next = 30;
             break;
 
           case 23:
             _context.prev = 23;
             _context.t0 = _context["catch"](0);
-            console.log("error :" + _context.t0);
+            //console.log("error :" + error);
             $resultsTable.style.display = "none";
             errorSection = document.createElement("section");
             errorSection.classList.add("error-section");
-            errorSection.innerHTML = "<p>Ooops ! Nous n'avons pas pu charger de donn\xE9es depuis notre fournisseur de donn\xE9es</p>";
-            document.querySelector("main").appendChild(errorSection);
+            errorSection.innerHTML = "<p>Ooops ! Nous n'avons pas pu charger de donn\xE9es depuis notre fournisseur de donn\xE9es</p><p>L'erreur est la suivante : ".concat(_context.t0, "</p>");
+            $main.appendChild(errorSection);
 
-          case 31:
+          case 30:
           case "end":
             return _context.stop();
         }
@@ -9636,7 +9649,13 @@ var getOpenWeather = /*#__PURE__*/function () {
   return function getOpenWeather(_x) {
     return _ref.apply(this, arguments);
   };
-}();
+}(); // Handle Background's body depending day's time
+
+
+var $video = document.createElement("div");
+var dayTime = "<video autoplay muted loop id=\"video-bg\">\n<source src=\"./src/video/Blue-Sky-Courtesy-Pixabay.mp4\" type=\"video/mp4\">\n</video>";
+var nightTime = "<video autoplay muted loop id=\"video-bg\">\n<source src=\"./src/video/Sky-Night-Courtesy-Dom-Le-Roy.mp4\" type=\"video/mp4\">\n</video>";
+(0,_utils_js__WEBPACK_IMPORTED_MODULE_0__.switchBackgroundBody)(_utils_js__WEBPACK_IMPORTED_MODULE_0__.currentHour, $video, $main, dayTime, nightTime);
 })();
 
 /******/ })()
