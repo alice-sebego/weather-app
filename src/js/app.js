@@ -1,7 +1,8 @@
-import {currentHour, seriesOfDays, responsiveContentsTheadTable} from './utils.js';
+import {currentHour, seriesOfDays, responsiveContentsTheadTable, switchBackgroundBody} from './utils.js';
 import apiKey from './api-key.js';
 
 // DOM's elements
+const $main = document.querySelector("main"); 
 const $hours = document.querySelectorAll(".hour");
 const $temperatureDetails = document.querySelectorAll(".temperatureDetails");
 const $days = document.querySelectorAll(".day");
@@ -89,13 +90,27 @@ const getOpenWeather = async (url) =>{
         } 
 
     } catch(error){
+
         console.log("error :" + error);
         $resultsTable.style.display = "none";
         const errorSection = document.createElement("section");
         errorSection.classList.add("error-section");
         errorSection.innerHTML = `<p>Ooops ! Nous n'avons pas pu charger de données depuis notre fournisseur de données</p>`;
-        document.querySelector("main").appendChild(errorSection); 
+        $main.appendChild(errorSection); 
+
     }
 }
 
+// Handle Background's body depending day's time
+const $video = document.createElement("div");
+
+const dayTime = `<video autoplay muted loop id="video-bg">
+<source src="./src/video/Blue-Sky-Courtesy-Pixabay.mp4" type="video/mp4">
+</video>`;
+
+const nightTime = `<video autoplay muted loop id="video-bg">
+<source src="./src/video/Sky-Night-Courtesy-Dom-Le-Roy.mp4" type="video/mp4">
+</video>`; 
+
+switchBackgroundBody(currentHour, $video, $main, dayTime, nightTime);
 

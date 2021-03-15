@@ -25,5 +25,16 @@ const responsiveContentsTheadTable = (tableresponsive) => {
     
 }
 
-export {currentHour, seriesOfDays, responsiveContentsTheadTable};
+// Handle Background's body depending day's time
+const switchBackgroundBody = (hour, video, element, day, night) => {
+    if(hour >= 6 && hour < 20){
+        video.innerHTML = day;
+        element.prepend(video);
+    } else {
+        video.innerHTML = night;
+        element.prepend(video);
+    }
+}
+
+export {currentHour, seriesOfDays, responsiveContentsTheadTable, switchBackgroundBody};
 
