@@ -6,7 +6,8 @@ const $hours = document.querySelectorAll(".hour");
 const $temperatureDetails = document.querySelectorAll(".temperatureDetails");
 const $days = document.querySelectorAll(".day");
 const $temperaturesDay = document.querySelectorAll(".temperatureDay");
-const $tableResponsive = document.querySelectorAll('.table-responsive');
+const $tableResponsive = document.querySelectorAll(".table-responsive");
+const $resultsTable = document.querySelector("#results-table");
 
 const lang = navigator.language.substr(0,2).toLowerCase();
 
@@ -89,6 +90,11 @@ const getOpenWeather = async (url) =>{
 
     } catch(error){
         console.log("error :" + error);
+        $resultsTable.style.display = "none";
+        const errorSection = document.createElement("section");
+        errorSection.classList.add("error-section");
+        errorSection.innerHTML = `<p>Ooops ! Nous n'avons pas pu charger de données depuis notre fournisseur de données</p>`;
+        document.querySelector("main").appendChild(errorSection); 
     }
 }
 
