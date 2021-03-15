@@ -122,10 +122,9 @@ td{
     }
 
     .table-responsive thead {
-        /* position: absolute;
+        position: absolute;
 		top: -9999px;
-		left: -9999px; */
-        display: none;
+		left: -9999px;
     }
 
     .table-responsive td {
