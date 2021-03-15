@@ -9530,7 +9530,8 @@ var $hours = document.querySelectorAll(".hour");
 var $temperatureDetails = document.querySelectorAll(".temperatureDetails");
 var $days = document.querySelectorAll(".day");
 var $temperaturesDay = document.querySelectorAll(".temperatureDay");
-var $tableResponsive = document.querySelectorAll('.table-responsive');
+var $tableResponsive = document.querySelectorAll(".table-responsive");
+var $resultsTable = document.querySelector("#results-table");
 var lang = navigator.language.substr(0, 2).toLowerCase();
 var options = {
   enableHighAccuracy: true,
@@ -9551,7 +9552,7 @@ navigator.geolocation.getCurrentPosition(function (pos) {
 
 var getOpenWeather = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
-    var response, jsonResponse, imgWeather, descriptionWeather, currentTemperature, timeZone, i, incrHour, j, k, l;
+    var response, jsonResponse, imgWeather, descriptionWeather, currentTemperature, timeZone, i, incrHour, j, k, l, errorSection;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
@@ -9611,15 +9612,20 @@ var getOpenWeather = /*#__PURE__*/function () {
             }
 
           case 21:
-            _context.next = 26;
+            _context.next = 31;
             break;
 
           case 23:
             _context.prev = 23;
             _context.t0 = _context["catch"](0);
             console.log("error :" + _context.t0);
+            $resultsTable.style.display = "none";
+            errorSection = document.createElement("section");
+            errorSection.classList.add("error-section");
+            errorSection.innerHTML = "<p>Ooops ! Nous n'avons pas pu charger de donn\xE9es depuis notre fournisseur de donn\xE9es</p>";
+            document.querySelector("main").appendChild(errorSection);
 
-          case 26:
+          case 31:
           case "end":
             return _context.stop();
         }
