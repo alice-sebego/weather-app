@@ -12,7 +12,10 @@ currentDay = currentDay.charAt(0).toUpperCase() + currentDay.slice(1);
 
 let seriesOfDays = weekDays.slice(weekDays.indexOf(currentDay)).concat(weekDays.slice(0, weekDays.indexOf(currentDay)));
 
-// Handle Content's tables when screen's width < 700 px
+/**
+ * Handle Content's tables when screen's width < 700 px
+ * @param {HTMLTableElement} tableresponsive 
+ */
 const responsiveContentsTheadTable = (tableresponsive) => {
     tableresponsive.forEach(table => {
         let labels = Array.from(table.querySelectorAll('th')).map(th => {
@@ -25,7 +28,14 @@ const responsiveContentsTheadTable = (tableresponsive) => {
     
 }
 
-// Handle Background's body depending day's time
+/**
+ * Handle Background's body depending day's time
+ * @param {number} hour 
+ * @param {HTMLDivElement} video 
+ * @param {HTMLElement} element 
+ * @param {HTMLVideoElement} day 
+ * @param {HTMLVideoElement} night 
+ */
 const switchBackgroundBody = (hour, video, element, day, night) => {
     if(hour >= 6 && hour < 20){
         video.innerHTML = day;
