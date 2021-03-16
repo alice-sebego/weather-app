@@ -4,11 +4,6 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-}
-
-body{
-    background-color: #08AEEA;
-
     font-family: Poppins, Arial, Helvetica, sans-serif;
 }
 
@@ -25,6 +20,7 @@ h1{
     letter-spacing: .02em;
     font-size: 2.5em;
     color: white;
+    text-shadow: .1em .1em .2em rgba(0, 0, 0, 0.8);
 }
 
 #video-bg{
@@ -38,6 +34,10 @@ h1{
 
 #imgWeather{
     width: 45%;
+}
+
+#descWeather::first-letter{
+    text-transform: capitalize;
 }
 
 #next-days{
@@ -55,7 +55,7 @@ h1{
 }
 
 section{
-    width: 75%;
+    width: 60%;
     margin: 2vh auto;
 }
 
@@ -66,7 +66,7 @@ table{
     border-style: solid;
     border-color: #ddd;
     padding: .5em;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(233, 232, 232, 0.5);
     backdrop-filter: blur(4px);
     -moz-backdrop-filter : blur(4px);
     -webkit-backdrop-filter: blur(4px);
@@ -78,6 +78,7 @@ table{
 }
 
 #daily-forecast{
+    border-radius: 0 0 .5em .5em;
     box-shadow: -.1em .5em .9em rgba(0, 0, 0, 0.3);
 }
 
@@ -103,12 +104,15 @@ td{
     padding: 2vh 2vw;
     margin: auto;
     color: #075a79;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(233, 232, 232, 0.5);
     border-radius: .5em;
 }
 
 @media only screen and (max-width: 700px) {
 
+    h1{
+        font-size: 1.9em;
+    }
     section{
         width: 65%;
     }
@@ -118,7 +122,7 @@ td{
     }
 
     td{
-        font-size: 1.2em;
+        font-size: 1.1em;
     }
 
     .table-responsive table, 
@@ -175,10 +179,32 @@ td{
         width: 50%;
     }
 
+    .temperatureDay{
+        font-weight: 600;
+    }
+
 }
 
-@media (max-width: 350px){
+@media (max-width: 380px){
+
+    h1{
+        font-size: 1.5em;
+    }
+
+    section{
+        width: 90%;
+    }
+
+    td{
+        font-size: 1em;
+    }
+
+    #descWeather{
+        font-size: 0.9em;
+    } 
+
     .img-next-weather{
         width: 100%;
     }
+
 }
