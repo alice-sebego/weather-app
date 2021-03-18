@@ -9384,7 +9384,11 @@ var currentDay = today.toLocaleDateString("fr-FR", {
 });
 var weekDays = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
 currentDay = currentDay.charAt(0).toUpperCase() + currentDay.slice(1);
-var seriesOfDays = weekDays.slice(weekDays.indexOf(currentDay)).concat(weekDays.slice(0, weekDays.indexOf(currentDay))); // Handle Content's tables when screen's width < 700 px
+var seriesOfDays = weekDays.slice(weekDays.indexOf(currentDay)).concat(weekDays.slice(0, weekDays.indexOf(currentDay)));
+/**
+ * Handle Content's tables when screen's width < 700 px
+ * @param {HTMLTableElement} tableresponsive 
+ */
 
 var responsiveContentsTheadTable = function responsiveContentsTheadTable(tableresponsive) {
   tableresponsive.forEach(function (table) {
@@ -9395,7 +9399,15 @@ var responsiveContentsTheadTable = function responsiveContentsTheadTable(tablere
       td.setAttribute('data-label', labels[i % labels.length]);
     });
   });
-}; // Handle Background's body depending day's time
+};
+/**
+ * Handle Background's body depending day's time
+ * @param {number} hour 
+ * @param {HTMLDivElement} video 
+ * @param {HTMLElement} element 
+ * @param {HTMLVideoElement} day 
+ * @param {HTMLVideoElement} night 
+ */
 
 
 var switchBackgroundBody = function switchBackgroundBody(hour, video, element, day, night) {
@@ -9545,6 +9557,7 @@ var $days = document.querySelectorAll(".day");
 var $temperaturesDay = document.querySelectorAll(".temperatureDay");
 var $tableResponsive = document.querySelectorAll(".table-responsive");
 var $resultsTable = document.querySelector("#results-table");
+var $loader = document.querySelector("#loader");
 var lang = navigator.language.substr(0, 2).toLowerCase();
 var options = {
   enableHighAccuracy: true,
@@ -9578,7 +9591,7 @@ var getOpenWeather = /*#__PURE__*/function () {
             response = _context.sent;
 
             if (!response.ok) {
-              _context.next = 21;
+              _context.next = 22;
               break;
             }
 
@@ -9622,14 +9635,17 @@ var getOpenWeather = /*#__PURE__*/function () {
 
             for (l = 0; l < $temperaturesDay.length; l++) {
               $temperaturesDay[l].innerHTML = "".concat(Math.trunc(jsonResponse.daily[l + 1].temp.day), " \xB0C</br>\n                <img class=\"img-next-weather\" src=\"http://openweathermap.org/img/wn/").concat(jsonResponse.daily[l + 1].weather[0].icon, "@2x.png\">");
-            }
+            } // Hidden loader icon
 
-          case 21:
-            _context.next = 30;
+
+            $loader.classList.add("hidden");
+
+          case 22:
+            _context.next = 31;
             break;
 
-          case 23:
-            _context.prev = 23;
+          case 24:
+            _context.prev = 24;
             _context.t0 = _context["catch"](0);
             //console.log("error :" + error);
             $resultsTable.style.display = "none";
@@ -9638,12 +9654,12 @@ var getOpenWeather = /*#__PURE__*/function () {
             errorSection.innerHTML = "<p>Ooops ! Nous n'avons pas pu charger de donn\xE9es depuis notre fournisseur de donn\xE9es</p><p>L'erreur est la suivante : ".concat(_context.t0, "</p>");
             $main.appendChild(errorSection);
 
-          case 30:
+          case 31:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[0, 23]]);
+    }, _callee, null, [[0, 24]]);
   }));
 
   return function getOpenWeather(_x) {

@@ -9,6 +9,7 @@ const $days = document.querySelectorAll(".day");
 const $temperaturesDay = document.querySelectorAll(".temperatureDay");
 const $tableResponsive = document.querySelectorAll(".table-responsive");
 const $resultsTable = document.querySelector("#results-table");
+const $loader = document.querySelector("#loader");
 
 const lang = navigator.language.substr(0,2).toLowerCase();
 
@@ -87,6 +88,9 @@ const getOpenWeather = async (url) =>{
                 <img class="img-next-weather" src="http://openweathermap.org/img/wn/${jsonResponse.daily[l + 1].weather[0].icon}@2x.png">`;
             }
 
+            // Hidden loader icon
+            $loader.classList.add("hidden");
+
         } 
 
     } catch(error){
@@ -100,6 +104,7 @@ const getOpenWeather = async (url) =>{
 
     }
 }
+
 
 // Handle Background's body depending day's time
 const $video = document.createElement("div");

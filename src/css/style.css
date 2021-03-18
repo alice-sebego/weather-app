@@ -82,7 +82,6 @@ table{
     box-shadow: -.1em .5em .9em rgba(0, 0, 0, 0.3);
 }
 
-
 #name-app{
     text-transform: capitalize;
     padding: 3vh 0;
@@ -108,7 +107,38 @@ td{
     border-radius: .5em;
 }
 
+/* Loading icon */
+#loader{
+    position: absolute;
+    width: 60%;
+    height: 80%;
+    margin: auto;
+    background-color: rgba(72, 113, 226, 0.9);
+    transition: opacity 1.5s ease-out;
+    z-index: 2;
+}
+
+#loader img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hidden{
+    /* opacity: 0; */
+    display: none;
+}
+
 @media only screen and (max-width: 700px) {
+
+    #loader{
+        width: 65%;
+    }
+
+    #loader img{
+        top: 30%;
+    }
 
     h1{
         font-size: 1.9em;
@@ -186,6 +216,14 @@ td{
 }
 
 @media (max-width: 380px){
+
+    #loader{
+        width: 90%;
+    }
+
+    #loader img{
+        top: 35%;
+    }
 
     h1{
         font-size: 1.5em;
